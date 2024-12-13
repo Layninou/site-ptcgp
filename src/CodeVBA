@@ -1,0 +1,45 @@
+'Ce Code permet de transformer un Excel en un JSON
+Sub createTxtFile(str As String)
+ 
+    Dim path As String
+    path = "C:\Users\S0141033\Documents\Protected\_Perso\" & "monJson" & ".txt"
+    Dim numFile As Integer
+    numFile = FreeFile
+    Open path For Output As #numFile
+        Print #numFile, str
+    Close #numFile
+ 
+End Sub
+ 
+Sub jsonCreator()
+ 
+    Dim header As Range
+    Dim data As Range
+    Set header = Range(Range("A1"), Range("A1").End(xlToRight))
+    Set data = Range(Range("A2"), Range("A2").End(xlDown).End(xlToRight))
+    Dim jsonData As String
+    'Start
+    jsonData = "["
+    Dim x As Integer, y As Integer, it As Integer
+    x = 0
+    For it = 0 To data.Rows.Count - 1
+        jsonData = jsonData & vbCr
+        jsonData = jsonData & "{"
+        y = 0
+        x = x + 1
+        For Each keys In header
+            y = y + 1
+            jsonData = jsonData & keys.Value & ": '" & data(x, y).Value & "', "
+        Next
+        jsonData = jsonData & "},"
+    Next
+    'End
+    jsonData = jsonData & vbCr
+    jsonData = jsonData & "]"
+    'Detail
+    jsonData = Replace(jsonData, ",]", "]")
+    jsonData = Replace(jsonData, ", }", "}")
+    'create file
+    Call createTxtFile(jsonData)
+ 
+End Sub
