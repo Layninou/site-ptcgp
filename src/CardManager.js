@@ -95,33 +95,36 @@ export const CardManager = ({ cardList }) => {
         (c) => `${c.id}-${c.set}-${c.Booster}` === cardId
       );
       if (
-        card &&
-        card.generation !== null &&
+        card 
+        //&&
+        /* card.generation !== null &&
         card.generation !== "-"  &&
-        //card.generation !== undefined  &&
+        card.generation !== undefined  &&
         card.set !== null &&
         card.set !== undefined &&
-        card.set !== "-"
+        card.set !== "-" */
       ) {
-        const { generation, set, Booster } = card;
+        const { generation, set, Booster, type, pokedex } = card;
 
         // Comptage par génération
-        if (!uniqueCardsByGeneration[generation]) {
-          uniqueCardsByGeneration[generation] = new Set();
+        if (generation !== undefined){
+          if (!uniqueCardsByGeneration[generation]) {
+            uniqueCardsByGeneration[generation] = new Set();
+          }
+          uniqueCardsByGeneration[generation].add(pokedex);  
         }
-        uniqueCardsByGeneration[generation].add(card.pokedex);
-
+        
         // Comptage par set
         if (!uniqueCardsBySet[set]) {
           uniqueCardsBySet[set] = new Set();
         }
-        uniqueCardsBySet[set].add(card.pokedex);
+        uniqueCardsBySet[set].add(card.id);
 
         // Comptage par booster
         if (!uniqueCardsByBooster[Booster]) {
           uniqueCardsByBooster[Booster] = new Set();
         }
-        uniqueCardsByBooster[Booster].add(card.pokedex);
+        uniqueCardsByBooster[Booster].add(card.id);
       }
     });
 
@@ -135,22 +138,24 @@ export const CardManager = ({ cardList }) => {
       const { generation, set, Booster } = card;
 
       // Total par génération
-      if (!totalByGeneration[generation]) {
-        totalByGeneration[generation] = new Set();
+      if (generation !== undefined){
+        if (!totalByGeneration[generation]) {
+          totalByGeneration[generation] = new Set();
+        }
+        totalByGeneration[generation].add(card.pokedex);
       }
-      totalByGeneration[generation].add(card.pokedex);
 
       // Total par set
       if (!totalBySet[set]) {
         totalBySet[set] = new Set();
       }
-      totalBySet[set].add(card.pokedex);
+      totalBySet[set].add(card.id);
 
       // Total par booster
       if (!totalByBooster[Booster]) {
         totalByBooster[Booster] = new Set();
       }
-      totalByBooster[Booster].add(card.pokedex);
+      totalByBooster[Booster].add(card.id);
     });
 
     return {
