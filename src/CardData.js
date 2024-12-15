@@ -2,7 +2,7 @@
 export const cardList = [
 
   //Set Promo A
-    { set: 'Promo A', Booster:'Promo-A', name: 'Potion',         id: 1, category: 'object',    /*generation: '-',*/ rarity: '0', src: 'https://layninou.github.io/site-ptcgp/Pics_card/Promo_A/promo-a_1_potion.webp',                  Event:'Magasin' },
+  { set: 'Promo A', Booster:'Promo-A', name: 'Potion',         id: 1, category: 'object',    /*generation: '-',*/ rarity: '0', src: 'https://layninou.github.io/site-ptcgp/Pics_card/Promo_A/promo-a_1_potion.webp',                  Event:'Magasin' },
   { set: 'Promo A', Booster:'Promo-A', name: 'X Speed',          id: 2, category: 'object',    /*generation: '-',*/ rarity: '0', src: 'https://layninou.github.io/site-ptcgp/Pics_card/Promo_A/promo-a_2_xspeed.webp',                  Event:'Magasin' },
   { set: 'Promo A', Booster:'Promo-A', name: 'Hand Scope',       id: 3, category: 'object',    /*generation: '-',*/ rarity: '0', src: 'https://layninou.github.io/site-ptcgp/Pics_card/Promo_A/promo-a_3_handscope.webp',               Event:'Magasin' },
   { set: 'Promo A', Booster:'Promo-A', name: 'Pokedex',          id: 4, category: 'object',    /*generation: '-',*/ rarity: '0', src: 'https://layninou.github.io/site-ptcgp/Pics_card/Promo_A/promo-a_4_pokedex.webp',                 Event:'Magasin' },
