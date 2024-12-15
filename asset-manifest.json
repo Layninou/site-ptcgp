@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/site-ptcgp/static/css/main.84995e1f.css",
-    "main.js": "/site-ptcgp/static/js/main.5ba5a7e0.js",
+    "main.js": "/site-ptcgp/static/js/main.e45c2371.js",
     "static/js/453.9373d7eb.chunk.js": "/site-ptcgp/static/js/453.9373d7eb.chunk.js",
     "index.html": "/site-ptcgp/index.html",
     "main.84995e1f.css.map": "/site-ptcgp/static/css/main.84995e1f.css.map",
-    "main.5ba5a7e0.js.map": "/site-ptcgp/static/js/main.5ba5a7e0.js.map",
+    "main.e45c2371.js.map": "/site-ptcgp/static/js/main.e45c2371.js.map",
     "453.9373d7eb.chunk.js.map": "/site-ptcgp/static/js/453.9373d7eb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84995e1f.css",
-    "static/js/main.5ba5a7e0.js"
+    "static/js/main.e45c2371.js"
   ]
 }
