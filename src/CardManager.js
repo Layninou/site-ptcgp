@@ -1,31 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './CardManager.css';
-//import { saveSelections, loadSelections } from "./storage.js";
-import { saveSelectionsToCookie, loadSelectionsFromCookie } from "./storage.js";
+import { saveSelectionsToLocalStorage, loadSelectionsFromLocalStorage } from "./storage.js";
+//import { saveSelectionsToCookie, loadSelectionsFromCookie } from "./storage.js";
 
 export const CardManager = ({ cardList }) => {
 
   /* UseState permettant d'avoir des états variables */
-  const [selectedCards, setSelectedCards] = useState(loadSelectionsFromCookie());
-  /* const [selectedCards, setSelectedCards] = useState(new Set()); */
+  const [selectedCards, setSelectedCards] = useState(loadSelectionsFromLocalStorage());
+  //const [selectedCards, setSelectedCards] = useState(loadSelectionsFromCookie());
+  //const [selectedCards, setSelectedCards] = useState(new Set());
   const [selectedFilters, setSelectedFilters] = useState({
     Generations: new Set(),
     Categories: new Set(),
     Boosters: new Set(),
   });
-
-/* 
-  // Charger les sélections au démarrage
-  useEffect(() => {
-    const selections = loadSelectionsFromCookie();
-    setSelectedCards(selections);
-  }, []);
-
-  // Sauvegarder les sélections à chaque mise à jour
-  useEffect(() => {
-    saveSelectionsToCookie(selectedCards);
-  }, [selectedCards]);
- */
 
   /* 
   L'objectif de cette constant est de definir si une carte est selectionné ou non
@@ -42,7 +30,7 @@ export const CardManager = ({ cardList }) => {
       } else {
         newSelected.add(cardIdentifier);
       }
-      saveSelectionsToCookie(newSelected)
+      saveSelectionsToLocalStorage(newSelected)
       return newSelected;
     });
   };

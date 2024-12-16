@@ -1,42 +1,35 @@
 // Déclare selectedCards
 let selectedCards = [];
 
-// Charger les cartes sélectionnées depuis LocalStorage au démarrage
-export const loadSelections = () => {
-    // Simulez un chargement depuis un stockage local ou une API
-    const data = JSON.parse(localStorage.getItem("selectedCards")) || [];
-    
-    // Assurez-vous que data est un tableau
-    if (!Array.isArray(data)) {
-      console.error("loadSelections n'a pas renvoyé un tableau : ", data);
-      return [];
-    }
-    return data;
-};
-
-selectedCards = loadSelections(); // Réassigne les cartes chargées
-
-// Sauvegarde les sélections dans LocalStorage
-export const saveSelections = (selections) => {
-  localStorage.setItem("selectedCards", JSON.stringify(selections));
-};
-
-// Exemple : Ajouter une carte à la sélection
-export const addCardToSelection = (cardId) => {
-  if (!selectedCards.includes(cardId)) {
-    selectedCards.push(cardId);
-    saveSelections(selectedCards); // Sauvegarde immédiatement
+// Sauvegarder les sélections dans localStorage
+export const saveSelectionsToLocalStorage = (selectedCards) => {
+  const selectedCardsArray = Array.from(selectedCards); // Convertir le Set en tableau
+  try {
+      localStorage.setItem("selectedCards", JSON.stringify(selectedCardsArray)); // Stocker dans localStorage
+  } catch (error) {
+      console.error("Erreur lors de la sauvegarde des données dans localStorage :", error);
   }
 };
 
-// Exemple : Supprimer une carte de la sélection
-export const removeCardFromSelection = (cardId) => {
-  const index = selectedCards.indexOf(cardId);
-  if (index > -1) {
-    selectedCards.splice(index, 1);
-    saveSelections(selectedCards); // Sauvegarde immédiatement
+// Charger les sélections depuis localStorage
+export const loadSelectionsFromLocalStorage = () => {
+  try {
+      const data = localStorage.getItem("selectedCards"); // Récupérer les données
+      if (data) {
+          const selectedCardsArray = JSON.parse(data); // Désérialiser les données
+          if (Array.isArray(selectedCardsArray)) {
+              return new Set(selectedCardsArray); // Convertir en Set
+          } else {
+              console.warn("Les données de localStorage ne sont pas un tableau valide.");
+              return new Set(); // Retourner un Set vide en cas de format invalide
+          }
+      }
+  } catch (error) {
+      console.error("Erreur lors du chargement des données depuis localStorage :", error);
   }
+  return new Set(); // Retourner un Set vide si aucune donnée n'est trouvée ou en cas d'erreur
 };
+
 
 
 // Sauvegarder les sélections dans un cookie
