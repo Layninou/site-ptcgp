@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/site-ptcgp/static/css/main.84995e1f.css",
-    "main.js": "/site-ptcgp/static/js/main.54fad04c.js",
+    "main.css": "/site-ptcgp/static/css/main.585c592e.css",
+    "main.js": "/site-ptcgp/static/js/main.5f153a77.js",
     "static/js/453.9373d7eb.chunk.js": "/site-ptcgp/static/js/453.9373d7eb.chunk.js",
     "index.html": "/site-ptcgp/index.html",
-    "main.84995e1f.css.map": "/site-ptcgp/static/css/main.84995e1f.css.map",
-    "main.54fad04c.js.map": "/site-ptcgp/static/js/main.54fad04c.js.map",
+    "main.585c592e.css.map": "/site-ptcgp/static/css/main.585c592e.css.map",
+    "main.5f153a77.js.map": "/site-ptcgp/static/js/main.5f153a77.js.map",
     "453.9373d7eb.chunk.js.map": "/site-ptcgp/static/js/453.9373d7eb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.84995e1f.css",
-    "static/js/main.54fad04c.js"
+    "static/css/main.585c592e.css",
+    "static/js/main.5f153a77.js"
   ]
 }
