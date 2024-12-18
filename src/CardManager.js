@@ -275,7 +275,7 @@ export const CardManager = ({ cardList }) => {
         {Object.entries(groupedBySet).map(([setName, setCards]) => (
           <div key={setName} className="set-section">
             <h2>{setName}</h2>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+            <div className="set-all-card" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
               {setCards
                 .filter(isCardVisible)
                 .map((card) => {

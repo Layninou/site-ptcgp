@@ -102,6 +102,11 @@
   }
   
   /* TODO */
+  .set-all-card{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
   .Generation-filters-container{
     display: flex;
     justify-content: center;
