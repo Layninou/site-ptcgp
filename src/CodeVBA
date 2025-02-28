@@ -2,7 +2,7 @@
 Sub createTxtFile(str As String)
  
     Dim path As String
-    path = "C:\Users\S0141033\Documents\Protected\_Perso\" & "monJson" & ".txt"
+    path = "C:\Users\theop\site-pokepocket-tcg\public\" & "monJson" & ".txt"
     Dim numFile As Integer
     numFile = FreeFile
     Open path For Output As #numFile
